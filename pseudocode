@@ -1,0 +1,31 @@
+FOOD (Work towards making a favorite foods caterogies app, save photos of foods that you rank to be your favorite.)
+1.) - What categories of food do we want? - 
+- Best type of Sandwich 
+- best type of burger
+- best type of taco 
+- best type of chips 
+- 
+2.) Define the schema - This will serve as a base 
+
+const mongoose = require('mongoose')
+
+const plantSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  image: String,
+})
+
+const Plant = mongoose.model('Plant', plantSchema)
+module.exports = Plant
+
+3.) Link all modules 
+    - express
+    - EJS
+    - MongoDB
+    - Mongoose 
+    - node 
+
+4.) Build out the functionality of the App - The MVP
+5.) build the app.get('/, (req, res)) route to test if it is working 
+6.) Create a views with EJS - Set this as the landing page to test that the route is working 
+7.) 

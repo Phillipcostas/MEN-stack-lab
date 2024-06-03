@@ -1,0 +1,15 @@
+<body>
+    
+    <h1>Edit <%= food %></h1>
+    <form action="/food/<%=food._id%>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+      
+        <label for="isbest">Is this the Best?</label>
+        <input type="checkbox" name="isBest" id="isBest" />
+      
+        <button type="submit">Update Best Food</button>
+      </form>
+    <a href="/food">Back to Foods</a>
+  </body>
+  

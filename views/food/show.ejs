@@ -1,0 +1,26 @@
+<!-- views/fruits/show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= food %></title> <!-- Dynamic title based on food name -->
+  </head>
+  <a href="/food/">Back to Foods</a>
+
+  <body>
+    <h1><%= food.name %></h1> <!-- Display food name -->
+    <% if (food.isBest) { %>
+      <p>Is this the Best?</p>
+    <% } else { %>
+      <p>This is not the favorite!</p>
+    <% } %>  
+    <form action="/food/<%= food._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%= food.name %></button>
+      </form>
+      <a href="/food/<%= food._id %>/edit">Edit <%= food.name %></a>
+      <br/>
+      <a href="/food">Back to Food Categories</a>
+  </body>
+</html>
