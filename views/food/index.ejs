@@ -8,19 +8,17 @@
     <title>Food Catalog</title>
   </head>
   <body>
-            <!-- views/foods/index.ejs -->
-<a href="/food/new">Add New Food</a>
-<br/>
-<br/>
-<a href="/newCategory/new">Add New Food Category</a>
+            <!-- views/food/index.ejs -->
 
-    <h1>All Foods</h1>
+<br/>
+<br/>
+<a href="/food/newCategory">Add New Food Category</a>
+
+    <h1>All Food Categories</h1>
     <ul>
         <% foods.forEach(food => { %>
             <li><a href="/food/<%= food._id %>"><%= food.name %></a></li>
         <% }); %>
-
-
     </ul>
   </body>
 </html>

@@ -12,7 +12,7 @@ mongoose.connection.on("connected", () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
   });
 
-  const food = require('./models/Food.js');
+  const food = require('./models/food.js');
   
 
   //<-------------------  Middleware ----------------------->
@@ -36,7 +36,7 @@ app.get("/food", async (req, res) => {
     res.render('food/index.ejs', { foods: allFoods });
   });
 
-app.get('/food/newCaterogry', (req, res) => {
+app.get('/food/newCategory', (req, res) => {
     res.render('food/newCategory.ejs');
 })
 
@@ -60,8 +60,8 @@ app.post("/food", async (req, res) => {
   });
 
 
-  app.get("/food/:foodId", async (req, res) => {
-    const foundFood = await food.findById(req.params.foodId);
+  app.get("/food/:food", async (req, res) => {
+    const foundFood = await food.find(req.params.category);
     res.render('food/show.ejs', { food: foundFood });
   });
 
@@ -82,14 +82,14 @@ app.put("/food/:foodId", async (req, res) => {
     } else {
       req.body.isBest = false;
     }
-    await food.findByIdAndUpdate(req.params.foodId, req.body);
+    await food.findAndUpdate(req.params.category, req.body);
 
-    res.redirect(`/food/${req.params.foodId}`);
+    res.redirect(`/food/${req.params.category}`);
   });
 
 
   app.delete("/food/:foodId", async (req, res) => {
-    await food.findByIdAndDelete(req.params.foodId);
+    await food.findByIdAndDelete(req.params.category);
     res.redirect('/food');
   });
   
